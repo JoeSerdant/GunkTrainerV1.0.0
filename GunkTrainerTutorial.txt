@@ -1,0 +1,86 @@
+GUNK TRAINER 1.0.0
+==================
+Trainer for the game Gunk (RyeGames). Singleplayer only - the game has no
+multiplayer or online leaderboards, so this trainer will not affect anyone else.
+
+Built and tested against the game Gunk. Made by Claude Fable 5.2.
+Ui is in Czech.
+(Unity 2022.3.33f1, build-guid 66a66a6b8c754788b7d2e098c82607b6).
+
+
+INSTALLATION
+------------
+1. Extract the entire contents of this zip archive into the game folder - where
+   Gunk.exe is located. Next to Gunk.exe, you must have:
+       winhttp.dll
+       doorstop_config.ini
+       .doorstop_version
+       BepInEx\            (folder)
+2. Launch the game normally (via Gunk.exe or Steam).
+3. A message "Gunk Trainer načten - F1 = menu" will appear at the top for a few
+   seconds.
+
+Linux / Steam Deck (Proton): add the following to the game's launch options in
+Steam:
+    WINEDLLOVERRIDES="winhttp=n,b" %command%
+
+
+CONTROLS
+--------
+F1   Open / close menu (unlocks mouse cursor, disables camera and throwing while open)
+F2   God mode (invincibility)
+F3   One-hit kill (including bosses)
+F4   No throw cooldown
+F5   Permanent explosive rocks
+F6   Level up
+F7   Max out all upgrades
+F8   Kill all enemies (leaves bosses alive)
+F9   Freeze enemies
+F10  Refill health
+
+Menu-only options:
+  - Movement speed 1-5x, jump height 1-5x, mid-air jump
+  - Damage multiplier 1-50x
+  - XP multiplier 1-20x
+  - Individual upgrades +1 level at a time
+  - Kill boss, disable new enemy spawns
+  - Game speed 0.2-3x
+  - Unlock Endless mode, +10,000 score (Endless mode only)
+
+Hotkeys can be changed in BepInEx\config\gunk.trainer.cfg
+(created on first launch; set to None to disable a hotkey).
+
+
+STEAM ACHIEVEMENTS
+------------------
+By default, once you activate any cheat, the trainer blocks Steam achievements
+until you restart the game so you don't unlock them accidentally. As long as you
+don't use any cheats, achievements work normally. This can be toggled off via
+the checkbox at the bottom of the menu (or by setting
+BlokovatSteamAchievementy = false in gunk.trainer.cfg).
+
+
+UNINSTALLATION
+--------------
+Delete the following from the game folder: winhttp.dll, doorstop_config.ini,
+.doorstop_version, and the BepInEx folder. The game will be back to its original
+state - the trainer does not overwrite any game files.
+
+
+TROUBLESHOOTING
+---------------
+- The menu doesn't show up: check if BepInEx\LogOutput.log was created. If not,
+  BepInEx didn't load at all - either the files aren't placed next to Gunk.exe,
+  or your antivirus deleted/blocked winhttp.dll.
+- LogOutput.log contains "Metoda nenalezena" or "Patch ... selhal": the game has
+  been updated and that specific cheat needs an update. Other cheats will
+  continue to work.
+
+
+WHAT'S INCLUDED
+---------------
+BepInEx 5.4.23.6 (x64, Mono) - unmodified official release from
+https://github.com/BepInEx/BepInEx/releases (see license in
+BepInEx\LICENSE.BepInEx.txt).
+BepInEx\plugins\GunkTrainer\GunkTrainer.dll - the trainer itself.
+BepInEx\plugins\GunkTrainer\zdroj\ - trainer source code and build script.
